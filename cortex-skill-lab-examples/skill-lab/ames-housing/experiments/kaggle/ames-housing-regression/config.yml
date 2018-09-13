@@ -1,0 +1,26 @@
+experiment:
+  runs:
+  - artifacts:
+    - model
+    end: 1536851926
+    id: k60gepr
+    metrics:
+      r2: 0.9206957682854126
+      rmse: 0.10838639184071469
+    params:
+      alphas:
+      - 1
+      - 0.1
+      - 0.001
+      - 0.0005
+      model_type: Lasso
+    start: 1536851926
+    took: 0.375250409997534
+meta:
+  created: '2018-09-13 10:18:46.078734'
+  function: regression
+  style: supervised
+  updated: '2018-09-13 10:18:46.461691'
+pipeline:
+  dataset: kaggle/ames-housing-train
+  name: engineer

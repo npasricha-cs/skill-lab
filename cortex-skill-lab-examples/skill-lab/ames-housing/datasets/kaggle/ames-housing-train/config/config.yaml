@@ -1,0 +1,295 @@
+config_meta:
+  create: '2018-09-13 10:18:29.608198'
+  modify: '2018-09-13 10:21:13.325280'
+  uid: 1536851909608
+contract:
+  clean:
+    cleaners: {}
+    enrichment: {}
+    pipeline:
+      context:
+        BsmtFinSF1_median: !!binary |
+          gANHQHfgAAAAAAAu
+        BsmtUnfSF_median: !!binary |
+          gANHQH3YAAAAAAAu
+        GarageArea_median: !!binary |
+          gANHQH34AAAAAAAu
+        GarageYrBlt_median: !!binary |
+          gANHQJ7wAAAAAAAu
+        LotFrontage_median: !!binary |
+          gANHQFFAAAAAAAAu
+        MasVnrArea_median: !!binary |
+          gANHAAAAAAAAAAAu
+        TotalBsmtSF_median: !!binary |
+          gANHQI74AAAAAAAu
+      steps:
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsCSwVLQ0MWfAFqAGQBZwFkAmQDZASNAwEAZABT
+            AHEFKE5YAgAAAElkcQZLAYhYBwAAAGNvbHVtbnNxB1gEAAAAYXhpc3EIWAcAAABpbnBsYWNlcQmH
+            cQp0cQtYBAAAAGRyb3BxDIVxDVgIAAAAcGlwZWxpbmVxDlgCAAAAZGZxD4ZxEFgfAAAAPGlweXRo
+            b24taW5wdXQtMTYtODBhZjRlMzcxZjNiPnERWAsAAABkcm9wX3VudXNlZHESSwFDAgABcRMpKXRx
+            FFJxFX1xFmgSTk59cRd0cRhScRku
+          name: drop_unused
+          type: inline
+        name: drop_unused
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsCSwVLQ0M4fAFqAHwBfAFkARkAagF0AoMBZAJr
+            BHwBZAMZAGoBdAKDAWQEawBAABkAagNkBWQGjQIBAGQAUwBxBShOWAkAAABHckxpdkFyZWFxBk2g
+            D1gJAAAAU2FsZVByaWNlcQdK4JMEAIhYBwAAAGlucGxhY2VxCIVxCXRxCihYBAAAAGRyb3BxC1gG
+            AAAAYXN0eXBlcQxYAwAAAGludHENWAUAAABpbmRleHEOdHEPWAgAAABwaXBlbGluZXEQWAIAAABk
+            ZnERhnESWB8AAAA8aXB5dGhvbi1pbnB1dC0xOC1kODQyMjUyNjY4NjM+cRNYDQAAAGRyb3Bfb3V0
+            bGllcnNxFEsBQwIAAXEVKSl0cRZScRd9cRhYAwAAAGludHEZaAFoDYVxGlJxG3NoFE5OfXEcdHEd
+            UnEeLg==
+          name: drop_outliers
+          type: inline
+        name: drop_outliers
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsDSwRLA0MiZAFkAmQDZARnBH0ChwBmAWQFZAaE
+            CHwCRACDAQEAZABTAHEFKE5YDAAAAEJzbXRIYWxmQmF0aHEGWAwAAABCc210RnVsbEJhdGhxB1gK
+            AAAAQnNtdEZpblNGMnEIWAoAAABHYXJhZ2VDYXJzcQloBChLAUsASwJLBksTQx5nAHwAXRZ9AYgA
+            fAEZAGoAZABkAWQCjQKRAnEEUwBxCksAiFgHAAAAaW5wbGFjZXELhXEMh3ENWAYAAABmaWxsbmFx
+            DoVxD1gCAAAALjBxEFgBAAAAaXERhnESWB8AAAA8aXB5dGhvbi1pbnB1dC0yMC02YzgzOWNlNmQ0
+            OTg+cRNYCgAAADxsaXN0Y29tcD5xFEsDQwIGAHEVWAIAAABkZnEWhXEXKXRxGFJxGVgiAAAAZmls
+            bF96ZXJvX2NvbHMuPGxvY2Fscz4uPGxpc3Rjb21wPnEadHEbKVgIAAAAcGlwZWxpbmVxHGgWWA4A
+            AABmaWxsX3plcm9fY29sc3Edh3EeaBNoHUsBQwQAAQwBcR8paBaFcSB0cSFScSJ9cSNoHU5OfXEk
+            dHElUnEmLg==
+          name: fill_zero_cols
+          type: inline
+        name: fill_zero_cols
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsDSwdLA0M8ZAFkAmQDZARkBWQGZAdnB30ChwCH
+            AWYCZAhkCYQIfAJEAIMBAQCHAGYBZApkCYQIfAJEAIMBAQBkAFMAcQUoTlgKAAAAR2FyYWdlQXJl
+            YXEGWAsAAABUb3RhbEJzbXRTRnEHWAoAAABNYXNWbnJBcmVhcQhYCgAAAEJzbXRGaW5TRjFxCVgL
+            AAAATG90RnJvbnRhZ2VxClgJAAAAQnNtdFVuZlNGcQtYCwAAAEdhcmFnZVlyQmx0cQxoBChLAUsA
+            SwJLB0sTQzJnAHwAXSp9AYgBagBkAGoBfAGDAXQCagOIAHwBGQBqBHQFgwFqBoMAgwGDApECcQRT
+            AHENWAkAAAB7fV9tZWRpYW5xDoVxDyhYCwAAAHNldF9jb250ZXh0cRBYBgAAAGZvcm1hdHERWAIA
+            AABucHESWAgAAABhc3NjYWxhcnETWAYAAABhc3R5cGVxFFgFAAAAZmxvYXRxFVgGAAAAbWVkaWFu
+            cRZ0cRdYAgAAAC4wcRhYAQAAAGpxGYZxGlgfAAAAPGlweXRob24taW5wdXQtMjMtYzE1NDI5MWZk
+            ZWYyPnEbWAoAAAA8bGlzdGNvbXA+cRxLA0MCBgBxHVgCAAAAZGZxHlgIAAAAcGlwZWxpbmVxH4Zx
+            ICl0cSFScSJYJAAAAGZpbGxfbWVkaWFuX2NvbHMuPGxvY2Fscz4uPGxpc3Rjb21wPnEjaAQoSwFL
+            AEsCSwZLE0MsZwB8AF0kfQGIAHwBGQBqAIgAfAEZAGoBdAKDAWoDgwBkAGQBjQKRAnEEUwBxJIhY
+            BwAAAGlucGxhY2VxJYVxJoZxJyhYBgAAAGZpbGxuYXEoaBRoFWgWdHEpaBhoGYZxKmgbaBxLBEMC
+            BgBxK2gehXEsKXRxLVJxLnRxLyloH2geWBAAAABmaWxsX21lZGlhbl9jb2xzcTCHcTFoG2gwSwFD
+            BgABEgEUAXEyKWgeaB+GcTN0cTRScTV9cTYoWAIAAABucHE3Y2RpbGwuX2RpbGwKX2ltcG9ydF9t
+            b2R1bGUKcThYBQAAAG51bXB5cTmFcTpScTtYBQAAAGZsb2F0cTxoAWgVhXE9UnE+dWgwTk59cT90
+            cUBScUEu
+          name: fill_median_cols
+          type: inline
+        name: fill_median_cols
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsCSwRLQ0MSfAFqAGQBZAJkA40CAQBkAFMAcQUo
+            TlgEAAAAbm9uZXEGiFgHAAAAaW5wbGFjZXEHhXEIdHEJWAYAAABmaWxsbmFxCoVxC1gIAAAAcGlw
+            ZWxpbmVxDFgCAAAAZGZxDYZxDlgfAAAAPGlweXRob24taW5wdXQtMjUtYzIyODc2NzQ1NWUyPnEP
+            WAwAAABmaWxsX25hX25vbmVxEEsBQwIAAXERKSl0cRJScRN9cRRoEE5OfXEVdHEWUnEXLg==
+          name: fill_na_none
+          type: inline
+        name: fill_na_none
+    source: {}
+    version: '0.00'
+  engineer:
+    cleaners: {}
+    enrichment: {}
+    pipeline:
+      context:
+        columns: !!binary |
+          gANdcQAoWAoAAABNU1N1YkNsYXNzcQFYCwAAAExvdEZyb250YWdlcQJYBwAAAExvdEFyZWFxA1gL
+          AAAAT3ZlcmFsbFF1YWxxBFgLAAAAT3ZlcmFsbENvbmRxBVgJAAAAWWVhckJ1aWx0cQZYDAAAAFll
+          YXJSZW1vZEFkZHEHWAoAAABNYXNWbnJBcmVhcQhYCgAAAEJzbXRGaW5TRjFxCVgKAAAAQnNtdEZp
+          blNGMnEKWAkAAABCc210VW5mU0ZxC1gLAAAAVG90YWxCc210U0ZxDFgIAAAAMXN0RmxyU0ZxDVgI
+          AAAAMm5kRmxyU0ZxDlgMAAAATG93UXVhbEZpblNGcQ9YCQAAAEdyTGl2QXJlYXEQWAwAAABCc210
+          RnVsbEJhdGhxEVgMAAAAQnNtdEhhbGZCYXRocRJYCAAAAEZ1bGxCYXRocRNYCAAAAEhhbGZCYXRo
+          cRRYDAAAAEJlZHJvb21BYnZHcnEVWAwAAABLaXRjaGVuQWJ2R3JxFlgMAAAAVG90Um1zQWJ2R3Jk
+          cRdYCgAAAEZpcmVwbGFjZXNxGFgLAAAAR2FyYWdlWXJCbHRxGVgKAAAAR2FyYWdlQ2Fyc3EaWAoA
+          AABHYXJhZ2VBcmVhcRtYCgAAAFdvb2REZWNrU0ZxHFgLAAAAT3BlblBvcmNoU0ZxHVgNAAAARW5j
+          bG9zZWRQb3JjaHEeWAkAAAAzU3NuUG9yY2hxH1gLAAAAU2NyZWVuUG9yY2hxIFgIAAAAUG9vbEFy
+          ZWFxIVgHAAAATWlzY1ZhbHEiWAYAAABNb1NvbGRxI1gGAAAAWXJTb2xkcSRYEAAAAE1TWm9uaW5n
+          X0MgKGFsbClxJVgLAAAATVNab25pbmdfRlZxJlgLAAAATVNab25pbmdfUkhxJ1gLAAAATVNab25p
+          bmdfUkxxKFgLAAAATVNab25pbmdfUk1xKVgLAAAAU3RyZWV0X0dydmxxKlgLAAAAU3RyZWV0X1Bh
+          dmVxK1gKAAAAQWxsZXlfR3J2bHEsWAoAAABBbGxleV9QYXZlcS1YCgAAAEFsbGV5X25vbmVxLlgM
+          AAAATG90U2hhcGVfSVIxcS9YDAAAAExvdFNoYXBlX0lSMnEwWAwAAABMb3RTaGFwZV9JUjNxMVgM
+          AAAATG90U2hhcGVfUmVncTJYDwAAAExhbmRDb250b3VyX0Jua3EzWA8AAABMYW5kQ29udG91cl9I
+          TFNxNFgPAAAATGFuZENvbnRvdXJfTG93cTVYDwAAAExhbmRDb250b3VyX0x2bHE2WBAAAABVdGls
+          aXRpZXNfQWxsUHVicTdYEAAAAFV0aWxpdGllc19Ob1NlV2FxOFgQAAAATG90Q29uZmlnX0Nvcm5l
+          cnE5WBEAAABMb3RDb25maWdfQ3VsRFNhY3E6WA0AAABMb3RDb25maWdfRlIycTtYDQAAAExvdENv
+          bmZpZ19GUjNxPFgQAAAATG90Q29uZmlnX0luc2lkZXE9WA0AAABMYW5kU2xvcGVfR3RscT5YDQAA
+          AExhbmRTbG9wZV9Nb2RxP1gNAAAATGFuZFNsb3BlX1NldnFAWBQAAABOZWlnaGJvcmhvb2RfQmxt
+          bmd0bnFBWBQAAABOZWlnaGJvcmhvb2RfQmx1ZXN0ZXFCWBMAAABOZWlnaGJvcmhvb2RfQnJEYWxl
+          cUNYFAAAAE5laWdoYm9yaG9vZF9CcmtTaWRlcURYFAAAAE5laWdoYm9yaG9vZF9DbGVhckNycUVY
+          FAAAAE5laWdoYm9yaG9vZF9Db2xsZ0NycUZYFAAAAE5laWdoYm9yaG9vZF9DcmF3Zm9ycUdYFAAA
+          AE5laWdoYm9yaG9vZF9FZHdhcmRzcUhYFAAAAE5laWdoYm9yaG9vZF9HaWxiZXJ0cUlYEwAAAE5l
+          aWdoYm9yaG9vZF9JRE9UUlJxSlgUAAAATmVpZ2hib3Job29kX01lYWRvd1ZxS1gUAAAATmVpZ2hi
+          b3Job29kX01pdGNoZWxxTFgSAAAATmVpZ2hib3Job29kX05BbWVzcU1YFAAAAE5laWdoYm9yaG9v
+          ZF9OUGtWaWxscU5YEwAAAE5laWdoYm9yaG9vZF9OV0FtZXNxT1gUAAAATmVpZ2hib3Job29kX05v
+          UmlkZ2VxUFgUAAAATmVpZ2hib3Job29kX05yaWRnSHRxUVgUAAAATmVpZ2hib3Job29kX09sZFRv
+          d25xUlgSAAAATmVpZ2hib3Job29kX1NXSVNVcVNYEwAAAE5laWdoYm9yaG9vZF9TYXd5ZXJxVFgU
+          AAAATmVpZ2hib3Job29kX1Nhd3llcldxVVgUAAAATmVpZ2hib3Job29kX1NvbWVyc3RxVlgUAAAA
+          TmVpZ2hib3Job29kX1N0b25lQnJxV1gTAAAATmVpZ2hib3Job29kX1RpbWJlcnFYWBQAAABOZWln
+          aGJvcmhvb2RfVmVlbmtlcnFZWBEAAABDb25kaXRpb24xX0FydGVyeXFaWBAAAABDb25kaXRpb24x
+          X0ZlZWRycVtYDwAAAENvbmRpdGlvbjFfTm9ybXFcWA8AAABDb25kaXRpb24xX1Bvc0FxXVgPAAAA
+          Q29uZGl0aW9uMV9Qb3NOcV5YDwAAAENvbmRpdGlvbjFfUlJBZXFfWA8AAABDb25kaXRpb24xX1JS
+          QW5xYFgPAAAAQ29uZGl0aW9uMV9SUk5lcWFYDwAAAENvbmRpdGlvbjFfUlJObnFiWBEAAABDb25k
+          aXRpb24yX0FydGVyeXFjWBAAAABDb25kaXRpb24yX0ZlZWRycWRYDwAAAENvbmRpdGlvbjJfTm9y
+          bXFlWA8AAABDb25kaXRpb24yX1Bvc0FxZlgPAAAAQ29uZGl0aW9uMl9Qb3NOcWdYDwAAAENvbmRp
+          dGlvbjJfUlJBZXFoWA8AAABDb25kaXRpb24yX1JSQW5xaVgPAAAAQ29uZGl0aW9uMl9SUk5ucWpY
+          DQAAAEJsZGdUeXBlXzFGYW1xa1gPAAAAQmxkZ1R5cGVfMmZtQ29ucWxYDwAAAEJsZGdUeXBlX0R1
+          cGxleHFtWA4AAABCbGRnVHlwZV9Ud25oc3FuWA8AAABCbGRnVHlwZV9Ud25oc0Vxb1gRAAAASG91
+          c2VTdHlsZV8xLjVGaW5xcFgRAAAASG91c2VTdHlsZV8xLjVVbmZxcVgRAAAASG91c2VTdHlsZV8x
+          U3RvcnlxclgRAAAASG91c2VTdHlsZV8yLjVGaW5xc1gRAAAASG91c2VTdHlsZV8yLjVVbmZxdFgR
+          AAAASG91c2VTdHlsZV8yU3RvcnlxdVgRAAAASG91c2VTdHlsZV9TRm95ZXJxdlgPAAAASG91c2VT
+          dHlsZV9TTHZscXdYDgAAAFJvb2ZTdHlsZV9GbGF0cXhYDwAAAFJvb2ZTdHlsZV9HYWJsZXF5WBEA
+          AABSb29mU3R5bGVfR2FtYnJlbHF6WA0AAABSb29mU3R5bGVfSGlwcXtYEQAAAFJvb2ZTdHlsZV9N
+          YW5zYXJkcXxYDgAAAFJvb2ZTdHlsZV9TaGVkcX1YEAAAAFJvb2ZNYXRsX0NvbXBTaGdxflgQAAAA
+          Um9vZk1hdGxfTWVtYnJhbnF/WA4AAABSb29mTWF0bF9NZXRhbHGAWA0AAABSb29mTWF0bF9Sb2xs
+          cYFYEAAAAFJvb2ZNYXRsX1RhciZHcnZxglgQAAAAUm9vZk1hdGxfV2RTaGFrZXGDWBAAAABSb29m
+          TWF0bF9XZFNobmdscYRYEwAAAEV4dGVyaW9yMXN0X0FzYlNobmdxhVgTAAAARXh0ZXJpb3Ixc3Rf
+          QXNwaFNobnGGWBMAAABFeHRlcmlvcjFzdF9CcmtDb21tcYdYEwAAAEV4dGVyaW9yMXN0X0Jya0Zh
+          Y2VxiFgSAAAARXh0ZXJpb3Ixc3RfQ0Jsb2NrcYlYEwAAAEV4dGVyaW9yMXN0X0NlbW50QmRxilgT
+          AAAARXh0ZXJpb3Ixc3RfSGRCb2FyZHGLWBMAAABFeHRlcmlvcjFzdF9JbVN0dWNjcYxYEwAAAEV4
+          dGVyaW9yMXN0X01ldGFsU2RxjVgTAAAARXh0ZXJpb3Ixc3RfUGx5d29vZHGOWBEAAABFeHRlcmlv
+          cjFzdF9TdG9uZXGPWBIAAABFeHRlcmlvcjFzdF9TdHVjY29xkFgTAAAARXh0ZXJpb3Ixc3RfVmlu
+          eWxTZHGRWBMAAABFeHRlcmlvcjFzdF9XZCBTZG5ncZJYEwAAAEV4dGVyaW9yMXN0X1dkU2hpbmdx
+          k1gTAAAARXh0ZXJpb3IybmRfQXNiU2huZ3GUWBMAAABFeHRlcmlvcjJuZF9Bc3BoU2hucZVYEwAA
+          AEV4dGVyaW9yMm5kX0JyayBDbW5xllgTAAAARXh0ZXJpb3IybmRfQnJrRmFjZXGXWBIAAABFeHRl
+          cmlvcjJuZF9DQmxvY2txmFgTAAAARXh0ZXJpb3IybmRfQ21lbnRCZHGZWBMAAABFeHRlcmlvcjJu
+          ZF9IZEJvYXJkcZpYEwAAAEV4dGVyaW9yMm5kX0ltU3R1Y2Nxm1gTAAAARXh0ZXJpb3IybmRfTWV0
+          YWxTZHGcWBEAAABFeHRlcmlvcjJuZF9PdGhlcnGdWBMAAABFeHRlcmlvcjJuZF9QbHl3b29kcZ5Y
+          EQAAAEV4dGVyaW9yMm5kX1N0b25lcZ9YEgAAAEV4dGVyaW9yMm5kX1N0dWNjb3GgWBMAAABFeHRl
+          cmlvcjJuZF9WaW55bFNkcaFYEwAAAEV4dGVyaW9yMm5kX1dkIFNkbmdxolgTAAAARXh0ZXJpb3Iy
+          bmRfV2QgU2huZ3GjWBEAAABNYXNWbnJUeXBlX0Jya0NtbnGkWBIAAABNYXNWbnJUeXBlX0Jya0Zh
+          Y2VxpVgPAAAATWFzVm5yVHlwZV9Ob25lcaZYEAAAAE1hc1ZuclR5cGVfU3RvbmVxp1gPAAAATWFz
+          Vm5yVHlwZV9ub25lcahYDAAAAEV4dGVyUXVhbF9FeHGpWAwAAABFeHRlclF1YWxfRmFxqlgMAAAA
+          RXh0ZXJRdWFsX0dkcatYDAAAAEV4dGVyUXVhbF9UQXGsWAwAAABFeHRlckNvbmRfRXhxrVgMAAAA
+          RXh0ZXJDb25kX0Zhca5YDAAAAEV4dGVyQ29uZF9HZHGvWAwAAABFeHRlckNvbmRfUG9xsFgMAAAA
+          RXh0ZXJDb25kX1RBcbFYEQAAAEZvdW5kYXRpb25fQnJrVGlscbJYEQAAAEZvdW5kYXRpb25fQ0Js
+          b2NrcbNYEAAAAEZvdW5kYXRpb25fUENvbmNxtFgPAAAARm91bmRhdGlvbl9TbGFicbVYEAAAAEZv
+          dW5kYXRpb25fU3RvbmVxtlgPAAAARm91bmRhdGlvbl9Xb29kcbdYCwAAAEJzbXRRdWFsX0V4cbhY
+          CwAAAEJzbXRRdWFsX0ZhcblYCwAAAEJzbXRRdWFsX0dkcbpYCwAAAEJzbXRRdWFsX1RBcbtYDQAA
+          AEJzbXRRdWFsX25vbmVxvFgLAAAAQnNtdENvbmRfRmFxvVgLAAAAQnNtdENvbmRfR2RxvlgLAAAA
+          QnNtdENvbmRfUG9xv1gLAAAAQnNtdENvbmRfVEFxwFgNAAAAQnNtdENvbmRfbm9uZXHBWA8AAABC
+          c210RXhwb3N1cmVfQXZxwlgPAAAAQnNtdEV4cG9zdXJlX0dkccNYDwAAAEJzbXRFeHBvc3VyZV9N
+          bnHEWA8AAABCc210RXhwb3N1cmVfTm9xxVgRAAAAQnNtdEV4cG9zdXJlX25vbmVxxlgQAAAAQnNt
+          dEZpblR5cGUxX0FMUXHHWBAAAABCc210RmluVHlwZTFfQkxRcchYEAAAAEJzbXRGaW5UeXBlMV9H
+          TFFxyVgQAAAAQnNtdEZpblR5cGUxX0x3UXHKWBAAAABCc210RmluVHlwZTFfUmVjcctYEAAAAEJz
+          bXRGaW5UeXBlMV9VbmZxzFgRAAAAQnNtdEZpblR5cGUxX25vbmVxzVgQAAAAQnNtdEZpblR5cGUy
+          X0FMUXHOWBAAAABCc210RmluVHlwZTJfQkxRcc9YEAAAAEJzbXRGaW5UeXBlMl9HTFFx0FgQAAAA
+          QnNtdEZpblR5cGUyX0x3UXHRWBAAAABCc210RmluVHlwZTJfUmVjcdJYEAAAAEJzbXRGaW5UeXBl
+          Ml9VbmZx01gRAAAAQnNtdEZpblR5cGUyX25vbmVx1FgNAAAASGVhdGluZ19GbG9vcnHVWAwAAABI
+          ZWF0aW5nX0dhc0Fx1lgMAAAASGVhdGluZ19HYXNXcddYDAAAAEhlYXRpbmdfR3JhdnHYWAwAAABI
+          ZWF0aW5nX090aFdx2VgMAAAASGVhdGluZ19XYWxscdpYDAAAAEhlYXRpbmdRQ19FeHHbWAwAAABI
+          ZWF0aW5nUUNfRmFx3FgMAAAASGVhdGluZ1FDX0dkcd1YDAAAAEhlYXRpbmdRQ19Qb3HeWAwAAABI
+          ZWF0aW5nUUNfVEFx31gMAAAAQ2VudHJhbEFpcl9OceBYDAAAAENlbnRyYWxBaXJfWXHhWBAAAABF
+          bGVjdHJpY2FsX0Z1c2VBceJYEAAAAEVsZWN0cmljYWxfRnVzZUZx41gQAAAARWxlY3RyaWNhbF9G
+          dXNlUHHkWA4AAABFbGVjdHJpY2FsX01peHHlWBAAAABFbGVjdHJpY2FsX1NCcmtyceZYDwAAAEVs
+          ZWN0cmljYWxfbm9uZXHnWA4AAABLaXRjaGVuUXVhbF9FeHHoWA4AAABLaXRjaGVuUXVhbF9GYXHp
+          WA4AAABLaXRjaGVuUXVhbF9HZHHqWA4AAABLaXRjaGVuUXVhbF9UQXHrWA8AAABGdW5jdGlvbmFs
+          X01hajFx7FgPAAAARnVuY3Rpb25hbF9NYWoyce1YDwAAAEZ1bmN0aW9uYWxfTWluMXHuWA8AAABG
+          dW5jdGlvbmFsX01pbjJx71gOAAAARnVuY3Rpb25hbF9Nb2Rx8FgOAAAARnVuY3Rpb25hbF9TZXZx
+          8VgOAAAARnVuY3Rpb25hbF9UeXBx8lgOAAAARmlyZXBsYWNlUXVfRXhx81gOAAAARmlyZXBsYWNl
+          UXVfRmFx9FgOAAAARmlyZXBsYWNlUXVfR2Rx9VgOAAAARmlyZXBsYWNlUXVfUG9x9lgOAAAARmly
+          ZXBsYWNlUXVfVEFx91gQAAAARmlyZXBsYWNlUXVfbm9uZXH4WBEAAABHYXJhZ2VUeXBlXzJUeXBl
+          c3H5WBEAAABHYXJhZ2VUeXBlX0F0dGNoZHH6WBIAAABHYXJhZ2VUeXBlX0Jhc21lbnRx+1gSAAAA
+          R2FyYWdlVHlwZV9CdWlsdElucfxYEgAAAEdhcmFnZVR5cGVfQ2FyUG9ydHH9WBEAAABHYXJhZ2VU
+          eXBlX0RldGNoZHH+WA8AAABHYXJhZ2VUeXBlX25vbmVx/1gQAAAAR2FyYWdlRmluaXNoX0ZpbnIA
+          AQAAWBAAAABHYXJhZ2VGaW5pc2hfUkZucgEBAABYEAAAAEdhcmFnZUZpbmlzaF9VbmZyAgEAAFgR
+          AAAAR2FyYWdlRmluaXNoX25vbmVyAwEAAFgNAAAAR2FyYWdlUXVhbF9FeHIEAQAAWA0AAABHYXJh
+          Z2VRdWFsX0ZhcgUBAABYDQAAAEdhcmFnZVF1YWxfR2RyBgEAAFgNAAAAR2FyYWdlUXVhbF9Qb3IH
+          AQAAWA0AAABHYXJhZ2VRdWFsX1RBcggBAABYDwAAAEdhcmFnZVF1YWxfbm9uZXIJAQAAWA0AAABH
+          YXJhZ2VDb25kX0V4cgoBAABYDQAAAEdhcmFnZUNvbmRfRmFyCwEAAFgNAAAAR2FyYWdlQ29uZF9H
+          ZHIMAQAAWA0AAABHYXJhZ2VDb25kX1Bvcg0BAABYDQAAAEdhcmFnZUNvbmRfVEFyDgEAAFgPAAAA
+          R2FyYWdlQ29uZF9ub25lcg8BAABYDAAAAFBhdmVkRHJpdmVfTnIQAQAAWAwAAABQYXZlZERyaXZl
+          X1ByEQEAAFgMAAAAUGF2ZWREcml2ZV9ZchIBAABYCQAAAFBvb2xRQ19FeHITAQAAWAkAAABQb29s
+          UUNfRmFyFAEAAFgJAAAAUG9vbFFDX0dkchUBAABYCwAAAFBvb2xRQ19ub25lchYBAABYCwAAAEZl
+          bmNlX0dkUHJ2chcBAABYCgAAAEZlbmNlX0dkV29yGAEAAFgLAAAARmVuY2VfTW5QcnZyGQEAAFgK
+          AAAARmVuY2VfTW5Xd3IaAQAAWAoAAABGZW5jZV9ub25lchsBAABYEAAAAE1pc2NGZWF0dXJlX0dh
+          cjJyHAEAAFgQAAAATWlzY0ZlYXR1cmVfT3RocnIdAQAAWBAAAABNaXNjRmVhdHVyZV9TaGVkch4B
+          AABYEAAAAE1pc2NGZWF0dXJlX1RlbkNyHwEAAFgQAAAATWlzY0ZlYXR1cmVfbm9uZXIgAQAAWAwA
+          AABTYWxlVHlwZV9DT0RyIQEAAFgMAAAAU2FsZVR5cGVfQ1dEciIBAABYDAAAAFNhbGVUeXBlX0Nv
+          bnIjAQAAWA4AAABTYWxlVHlwZV9Db25MRHIkAQAAWA4AAABTYWxlVHlwZV9Db25MSXIlAQAAWA4A
+          AABTYWxlVHlwZV9Db25Md3ImAQAAWAwAAABTYWxlVHlwZV9OZXdyJwEAAFgMAAAAU2FsZVR5cGVf
+          T3RocigBAABYCwAAAFNhbGVUeXBlX1dEcikBAABYFQAAAFNhbGVDb25kaXRpb25fQWJub3JtbHIq
+          AQAAWBUAAABTYWxlQ29uZGl0aW9uX0FkakxhbmRyKwEAAFgUAAAAU2FsZUNvbmRpdGlvbl9BbGxv
+          Y2FyLAEAAFgUAAAAU2FsZUNvbmRpdGlvbl9GYW1pbHlyLQEAAFgUAAAAU2FsZUNvbmRpdGlvbl9O
+          b3JtYWxyLgEAAFgVAAAAU2FsZUNvbmRpdGlvbl9QYXJ0aWFsci8BAABlLg==
+      dependencies:
+      - features
+      steps:
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsCSwVLQ0MUfAFqAGQBZAJkA2QEjQMBAGQAUwBx
+            BShOWAkAAABTYWxlUHJpY2VxBksBiFgHAAAAaW5wbGFjZXEHhXEIdHEJWAQAAABkcm9wcQqFcQtY
+            CAAAAHBpcGVsaW5lcQxYAgAAAGRmcQ2GcQ5YHwAAADxpcHl0aG9uLWlucHV0LTE4LWY4ODhkYmQ3
+            NzgzOD5xD1gLAAAAZHJvcF90YXJnZXRxEEsBQwIAAXERKSl0cRJScRN9cRRoEE5OfXEVdHEWUnEX
+            Lg==
+          name: drop_target
+          type: inline
+        name: drop_target
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsCSwJLQ0MKdABqAXwBgwFTAHEFToVxBlgCAAAA
+            cGRxB1gLAAAAZ2V0X2R1bW1pZXNxCIZxCVgIAAAAcGlwZWxpbmVxClgCAAAAZGZxC4ZxDFgfAAAA
+            PGlweXRob24taW5wdXQtMTgtZjg4OGRiZDc3ODM4PnENaAhLBEMCAAFxDikpdHEPUnEQfXERWAIA
+            AABwZHESY2RpbGwuX2RpbGwKX2ltcG9ydF9tb2R1bGUKcRNYBgAAAHBhbmRhc3EUhXEVUnEWc2gI
+            Tk59cRd0cRhScRku
+          name: get_dummies
+          type: inline
+        name: get_dummies
+    source: {}
+    version: '0.00'
+  features:
+    cleaners: {}
+    enrichment: {}
+    pipeline:
+      dependencies:
+      - clean
+      steps:
+      - function:
+          code: !!binary |
+            gANjZGlsbC5fZGlsbApfY3JlYXRlX2Z1bmN0aW9uCnEAKGNkaWxsLl9kaWxsCl9sb2FkX3R5cGUK
+            cQFYCAAAAENvZGVUeXBlcQKFcQNScQQoSwJLAEsCSwNLQ0MWdABqAXwBZAEZAIMBfAFkATwAZABT
+            AHEFTlgJAAAAU2FsZVByaWNlcQaGcQdYAgAAAG5wcQhYBQAAAGxvZzFwcQmGcQpYCAAAAHBpcGVs
+            aW5lcQtYAgAAAGRmcQyGcQ1YHwAAADxpcHl0aG9uLWlucHV0LTE0LWJmODgxOTc2OGI2OD5xDlgM
+            AAAAc2NhbGVfdGFyZ2V0cQ9LAUMCAAFxECkpdHERUnESfXETWAIAAABucHEUY2RpbGwuX2RpbGwK
+            X2ltcG9ydF9tb2R1bGUKcRVYBQAAAG51bXB5cRaFcRdScRhzaA9OTn1xGXRxGlJxGy4=
+          name: scale_target
+          type: inline
+        name: scale_target
+    source: {}
+    version: '0.00'
+storage:
+  folder:
+    data:
+      clean: 2_clean
+      dict: 1_dictionary
+      raw: 0_raw
+    feature:
+      engineer: 4_engineer
+      extract: 3_extract
+      frame: 5_frame
+    insight:
+      visual: 8_visualize
+    ml:
+      model: 6_model
+      train: 7_train
+    scratch:
+      play: x_scratch
+  path:
+    data: /Users/npasricha/.cortex/lab/kwtest/workspace/skill-lab/cortex-skill-lab-examples/skill-lab/ames-housing/datasets/kaggle/ames-housing-train/data
+    work: /Users/npasricha/.cortex/lab/kwtest/workspace/skill-lab/cortex-skill-lab-examples/skill-lab/ames-housing/datasets/kaggle/ames-housing-train
+  pattern:
+    clean: clean_{}_v{}.p
+    dict: dict_{}_v{}.p
+    excel: excel_{}_v{}.xlsx
+    feature: fea_{}_{}_v{}.p
+    visual: vis_{}_{}_v{}.png
